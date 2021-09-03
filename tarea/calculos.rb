@@ -88,3 +88,8 @@ puts "Los profesores bachiller son: #{bachiller}"
 puts "Los profesores titulado son: #{titulado}"
 puts "Los profesores maestria son: #{maestria}"
 puts "Los profesores doctorado son: #{doctorado}"
+
+puts "El monto pagado a Bachiller es: #{sum_bachiller}"
+puts "El monto pagado a titulado es: #{sum_titulado}"
+puts "El monto pagado a maestria es: #{sum_maestria}"
+puts "El monto pagado a doctorado es: #{sum_doctorado}"
