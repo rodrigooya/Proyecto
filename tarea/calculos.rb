@@ -35,5 +35,6 @@ class Calculos < Docente
     end        
 end
 
+
 juan = Calculos.new("0001-9","Juan","Perez","Bachiller",6)
-puts juan.sueldo(50,5)
+puts juan.sueldo(50,7)
