@@ -1,36 +1,36 @@
 require 'docente'
-class calculos{
-    def initialize(Horas,Tardanza)
-        attr_accessor :Grado,:Antiguedad,:Tardanza
-        @Horas = Horas
-        @Tardanza = Tardanza
+class Calculos
+    
     def tarifa
         case 
-            when @Grado == "Bachiller" then 40
-            when @Grado == "Titulado" then 80
-            when @Grado == "Maestria" then 100
-            when @Grado == "Doctorado" then 180
+            when @grado == "Bachiller" then 40
+            when @grado == "Titulado" then 80
+            when @grado == "Maestria" then 100
+            when @grado == "Doctorado" then 180
         end
     end
-    def aumento
+    def aumento 
         case
-            when @Antiguedad > 15 then 10%
-            when @Antiguedad > 11 then 7%
-            when @Antiguedad > 7 then 5%
-            when @Antiguedad > 4 then 4%
-            when @Antiguedad <= 4 then 3%
+            when @antiguedad > 15 then 0.1
+            when @antiguedad > 11 then 0.07
+            when @antiguedad > 7 then  0.05
+            when @antiguedad > 4 then 0.04
+            when @antiguedad <= 4 then 0.04
         end
     end
-    def bono
+    def bono tardanza
         case
-            when @Tardanza == 0 then 120
-            when @Tardanza <= 5 then 80
-            when @Tardanza <= 10 then 40
-            when @Tardanza <= 15 then 0
-            when @Tardanza > 15 then -40
+            when tardanza == 0 then 120
+            when tardanza <= 5 then 80
+            when tardanza <= 10 then 40
+            when tardanza <= 15 then 0
+            when tardanza > 15 then -40
         end
-    def sueldo ()
-        c = tarifa * Horas * ( 1 + aumento ) + bono
+    end
+    def sueldo horas, tardanza
+        c = tarifa.@grado*horas * ( 1 + aumento.antiguedad) + bono.tardanza
         return c
     end        
 }
+
+juan.sueldo(50,11)
