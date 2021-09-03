@@ -17,6 +17,7 @@ class Calculos < Docente
             when @grado == "Maestria" then 100
             when @grado == "Doctorado" then 180
         end
+        
     end
     def aumento antiguedad
         @antiguedad = antiguedad
