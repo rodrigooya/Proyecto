@@ -81,8 +81,7 @@ profesores.each do |i|
 end
 
 profesores.each do |i|
-    puts i.datos_sueldo
-    puts i.sueldo
+    puts "#{i.datos_sueldo} #{i.sueldo}"
 end
 puts "Los profesores bachiller son: #{bachiller}"
 puts "Los profesores titulado son: #{titulado}"
