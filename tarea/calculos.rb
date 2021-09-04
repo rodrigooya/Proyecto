@@ -14,11 +14,11 @@ class Calculos < Docente
     def aumento antiguedad
         @antiguedad = antiguedad
         case
-            when @antiguedad > 15 then 0.1
-            when @antiguedad > 11 then 0.07
-            when @antiguedad > 7 then  0.05
-            when @antiguedad > 4 then 0.04
-            when @antiguedad <= 4 then 0.04
+            when @antiguedad > 15 then 1.1
+            when @antiguedad > 11 then 1.07
+            when @antiguedad > 7 then  1.05
+            when @antiguedad > 4 then 1.04
+            when @antiguedad <= 4 then 1.03
         end
     end
     def bono tardanza
@@ -32,7 +32,7 @@ class Calculos < Docente
         end
     end
     def sueldo 
-        c = tarifa(@grado)*@horas * ( 1 + aumento(@antiguedad)) + bono(@tardanza)
+        c = tarifa(@grado)*@horas * aumento(@antiguedad) + bono(@tardanza)
         return c
     end
     def datos
@@ -46,13 +46,20 @@ class Calculos < Docente
         puts tarifa(@grado)
     end
 end
-
+=begin
 juan = Calculos.new("0001-9","Juan","Perez","Bachiller",5,50,6)
 pedro = Calculos.new("0002-5","Pedro","Muñoz","Titulado",4,70,16)
 diego = Calculos.new("0003-7","Diego","Gonzalez","Maestria",8,80,8)
 jose = Calculos.new("0004-3","Jose","Lopez","Doctorado",10,100,0)
+"89075371", "Pedro", "Quispe", "Bachiller", 2, 100, 2)
 
-profesores = [juan,pedro,diego,jose]
+("08127636", "Fernando", "Rordiguez", "Maestria", 5, 80, 18)
+=end
+pedro = Calculos.new("89075371", "Pedro", "Quispe", "Bachiller", 2, 100, 2)
+fernando = Calculos.new("08127636", "Fernando", "Rordiguez", "Maestria", 5, 80, 18)
+
+
+profesores = [pedro,fernando]
 sum_bachiller = 0
 sum_titulado = 0
 sum_maestria = 0
