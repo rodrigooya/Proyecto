@@ -49,12 +49,18 @@ class Calculos < Docente
     def datos_sueldo
         puts "El profesor #{@nombre} #{@apellido} Rut: #{@rut}, #{@grado} con una antiguedad de #{@antiguedad} tubo un sueldo de:"      
     end
+    def imp_tarifas
+        puts "El valor de la Hora por #{@grado}:"
+        puts tarifa(@grado)
+    end
 end
 
 juan = Calculos.new("0001-9","Juan","Perez","Bachiller",5,50,6)
 pedro = Calculos.new("0002-5","Pedro","Muñoz","Titulado",4,70,16)
 diego = Calculos.new("0003-7","Diego","Gonzalez","Maestria",8,80,8)
 jose = Calculos.new("0004-3","Jose","Lopez","Doctorado",10,100,0)
+
+
 
 profesores = [juan,pedro,diego,jose]
 sum_bachiller = 0
@@ -68,22 +74,27 @@ doctorado = []
 profesores.each do |i|
     if i.datos.include?("Bachiller")
         sum_bachiller = sum_bachiller + i.sueldo
-        bachiller.push(i.datos)
+        bachiller.push(i.datos) 
+        i.imp_tarifas
     elsif i.datos.include?("Titulado")
         sum_titulado = sum_titulado + i.sueldo
         titulado.push(i.datos)
+        i.imp_tarifas
     elsif i.datos.include?("Maestria")
         sum_maestria = sum_maestria + i.sueldo
         maestria.push(i.datos)
+        i.imp_tarifas
     elsif i.datos.include?("Doctorado")
         sum_doctorado = sum_doctorado + i.sueldo
         doctorado.push(i.datos)
+        i.imp_tarifas
     end
 end
 
 profesores.each do |i|
     puts "#{i.datos_sueldo} #{i.sueldo}"
 end
+=begin
 puts "Los profesores bachiller son: #{bachiller}"
 puts "Los profesores titulado son: #{titulado}"
 puts "Los profesores maestria son: #{maestria}"
@@ -93,3 +104,4 @@ puts "El monto pagado a Bachiller es: #{sum_bachiller}"
 puts "El monto pagado a titulado es: #{sum_titulado}"
 puts "El monto pagado a maestria es: #{sum_maestria}"
 puts "El monto pagado a doctorado es: #{sum_doctorado}"
+=end
